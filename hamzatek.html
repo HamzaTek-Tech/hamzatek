@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamzatek | Empowering Digital Evolution</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Hamzatek - Web development, IT support, e-learning platforms, and digital systems."
+    />
+    <meta
+      name="keywords"
+      content="Hamzatek, IT services, Web Development, E-learning, Digital Solutions, Kenya"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Hamzatek | Empowering Digital Evolution"
+    />
+    <meta
+      property="og:description"
+      content="Hamzatek offers web development, IT support, e-learning platforms, and digital record systems."
+    />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/social-preview.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="author" content="Hamza Abdinasir Barisa" />
+
+    <link rel="icon" href="hamzatek.ico" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .float-animation {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes fade {
+        0% {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .animate-fade {
+        animation: fade 1.5s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-blue-50 to-gray-100 text-gray-800">
+    <!-- Navbar -->
+    <header class="sticky top-0 bg-white shadow z-50">
+      <div
+        class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <img
+            src="hamzatek.ico"
+            alt="Hamzatek Logo"
+            class="w-8 h-8 rounded-xl"
+          />
+          <span class="text-xl font-bold text-blue-600">Hamzatek</span>
+        </div>
+        <nav class="hidden md:flex space-x-6 text-gray-700 font-medium">
+          <a href="#hero" class="hover:text-blue-600">Home</a>
+          <a href="#founder" class="hover:text-blue-600">Founder</a>
+          <a href="#services" class="hover:text-blue-600">Services</a>
+          <a href="#contact" class="hover:text-blue-600">Contact</a>
+        </nav>
+        <button
+          id="menuBtn"
+          class="md:hidden text-gray-700"
+          aria-label="Toggle Menu"
+        >
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden px-4 pb-4">
+        <a href="#hero" class="block py-2 text-gray-700 hover:text-blue-600"
+          >Home</a
+        >
+        <a href="#founder" class="block py-2 text-gray-700 hover:text-blue-600"
+          >Founder</a
+        >
+        <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600"
+          >Services</a
+        >
+        <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600"
+          >Contact</a
+        >
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="min-h-screen flex items-center justify-center px-6 py-10 md:py-20"
+    >
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      >
+        <div class="text-center md:text-left">
+          <h1 class="text-5xl md:text-6xl font-extrabold mb-4 text-gray-900">
+            Welcome to Hamzatek
+          </h1>
+          <p class="text-lg md:text-xl text-gray-600 mb-6 max-w-xl">
+            Empowering Digital Evolution — We build web platforms, IT systems,
+            and digital tools for modern businesses and institutions.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+          >
+            <a
+              href="#services"
+              class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+              >Our Services</a
+            >
+            <a
+              href="#contact"
+              class="px-6 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition"
+              >Get in Touch</a
+            >
+          </div>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <img
+            src="Hamzatek.png"
+            alt="Hamzatek IT Solutions Banner"
+            class="w-80 md:w-96 rounded-xl shadow-xl float-animation"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="founder" class="py-16 bg-white text-center">
+      <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-4">Meet the Founder</h2>
+        <img
+          src="logo2.ico"
+          alt="Hamza Barisa"
+          class="w-32 h-32 rounded-full mx-auto shadow mb-4"
+          loading="lazy"
+        />
+        <p class="text-gray-700 text-lg">
+          <strong>Hamza Abdinasir Barisa</strong> is the visionary behind
+          Hamzatek. With a background in web development, data systems, and
+          records management, he leads the company with deep technical expertise
+          and a passion for innovative IT solutions that drive impact.
+        </p>
+      </div>
+    </section>
+    <!-- Team Section -->
+    <section id="team" class="py-16 bg-white text-center">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-12">Meet the Team</h2>
+        <div
+          id="team-container"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10"
+        >
+          <!-- Team members will load here from JSON -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50 text-center">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-12">What We Offer</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="bg-white p-6 rounded shadow hover:shadow-md transition"
+            data-aos="fade-up"
+          >
+            <i class="fas fa-headset text-blue-600 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold">Online IT Support</h3>
+            <p class="text-gray-600 mt-2">
+              Real-time tech assistance, remote fixes, device setup, and ongoing
+              system support.
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded shadow hover:shadow-md transition"
+            data-aos="fade-up"
+          >
+            <i class="fas fa-laptop-code text-blue-600 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold">Custom Web Systems</h3>
+            <p class="text-gray-600 mt-2">
+              Scalable websites, dashboards, and web apps tailored for
+              institutions and SMEs.
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded shadow hover:shadow-md transition"
+            data-aos="fade-up"
+          >
+            <i
+              class="fas fa-chalkboard-teacher text-blue-600 text-4xl mb-4"
+            ></i>
+            <h3 class="text-xl font-semibold">E-learning Platforms</h3>
+            <p class="text-gray-600 mt-2">
+              LMS systems with course uploads, dashboards, and student progress
+              tracking.
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded shadow hover:shadow-md transition"
+            data-aos="fade-up"
+          >
+            <i class="fas fa-file-invoice text-blue-600 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold">Records & Claims Systems</h3>
+            <p class="text-gray-600 mt-2">
+              Digital health, academic, and invoicing systems built with
+              efficiency in mind.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section id="testimonials" class="py-16 bg-gray-50 text-center">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-10">What Our Clients Say</h2>
+
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide bg-white p-6 rounded-lg shadow">
+              <p class="text-gray-600 mb-4">
+                “Hamzatek built our school LMS—fast, smooth, and beautiful. We
+                love it!”
+              </p>
+              <h4 class="text-blue-600 font-medium text-sm">
+                – Principal, Eastland High
+              </h4>
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide bg-white p-6 rounded-lg shadow">
+              <p class="text-gray-600 mb-4">
+                “Professional team, smooth transition to digital records.
+                Recommended.”
+              </p>
+              <h4 class="text-blue-600 font-medium text-sm">
+                – Officer, Garissa Health Center
+              </h4>
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide bg-white p-6 rounded-lg shadow">
+              <p class="text-gray-600 mb-4">
+                “Excellent ongoing IT support. Their ticketing system saved us
+                time.”
+              </p>
+              <h4 class="text-blue-600 font-medium text-sm">
+                – ICT Manager, NACADA Kenya
+              </h4>
+            </div>
+          </div>
+          <!-- Controls -->
+          <div class="swiper-pagination mt-4"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">Contact Us</h2>
+        <form
+          action="https://formspree.io/f/movwoeoq"
+          method="POST"
+          class="space-y-6"
+        >
+          <input
+            name="name"
+            type="text"
+            placeholder="Your Name"
+            autocomplete="name"
+            required
+            class="w-full p-3 border border-gray-300 rounded-lg"
+          />
+          <input
+            name="email"
+            type="email"
+            placeholder="Your Email"
+            autocomplete="email"
+            required
+            class="w-full p-3 border border-gray-300 rounded-lg"
+          />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Your Message"
+            required
+            class="w-full p-3 border border-gray-300 rounded-lg"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Back to Top -->
+    <button
+      id="backToTop"
+      class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out opacity-0 pointer-events-none z-50"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-sm text-gray-600">
+      <p>© <span id="year"></span> Hamzatek. All rights reserved.</p>
+      <div class="mt-2 space-x-4">
+        <a href="terms.html" class="hover:underline">Terms</a>
+        <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+        <a href="legal.html" class="hover:underline">Legal</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+      document.getElementById("menuBtn").addEventListener("click", () => {
+        document.getElementById("mobileMenu").classList.toggle("hidden");
+      });
+      document.querySelectorAll("#mobileMenu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("mobileMenu").classList.add("hidden");
+        });
+      });
+      window.onload = () => {
+        document.getElementById("year").textContent = new Date().getFullYear();
+      };
+
+      const backToTopBtn = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.remove("opacity-0", "pointer-events-none");
+          backToTopBtn.classList.add("opacity-100");
+        } else {
+          backToTopBtn.classList.add("opacity-0", "pointer-events-none");
+          backToTopBtn.classList.remove("opacity-100");
+        }
+      });
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+    <!-- SwiperJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+    <script>
+      function openProfile(name, bio) {
+        document.getElementById("modalName").textContent = name;
+        document.getElementById("modalBio").textContent = bio;
+        document.getElementById("teamModal").classList.remove("hidden");
+      }
+
+      function closeProfile() {
+        document.getElementById("teamModal").classList.add("hidden");
+      }
+
+      const teamMembers = [
+        {
+          name: "Hamza Abdinasir Barisa",
+          role: "Founder & Lead Developer",
+          image: "hamza-profile.jpg",
+          bio: "Full-stack web developer and IT systems expert with a focus on education, healthcare, and e-learning technologies.",
+          linkedin: "https://linkedin.com/in/hamzabarisa",
+          github: "https://github.com/Hamzatek",
+        },
+        {
+          name: "Fatima Yusuf",
+          role: "UI/UX Designer",
+          image: "default-avatar.png",
+          bio: "Designs clean and intuitive interfaces, ensuring every system we build is usable and beautiful.",
+          linkedin: "https://linkedin.com/in/fatima-yusuf",
+        },
+        {
+          name: "Mohamed Ali",
+          role: "IT Support & Infrastructure",
+          image: "default-avatar.png",
+          bio: "Oversees networking, server deployment, and IT support across our client base.",
+          linkedin: "https://linkedin.com/in/mohamed-ali",
+        },
+      ];
+
+      // Render team when DOM is ready
+      document.addEventListener("DOMContentLoaded", () => {
+        const teamContainer = document.getElementById("team-container");
+
+        teamMembers.forEach((member, index) => {
+          teamContainer.innerHTML += `
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-md transition" data-aos="fade-up" data-aos-delay="${
+          index * 100
+        }">
+          <img src="${member.image}" alt="${
+            member.name
+          }" class="w-24 h-24 rounded-full mx-auto mb-4 shadow" />
+          <h3 class="text-xl font-semibold text-gray-900">${member.name}</h3>
+          <p class="text-blue-600 font-medium mb-2">${member.role}</p>
+          <p class="text-gray-600 text-sm">${member.bio.substring(
+            0,
+            100
+          )}...</p>
+          <div class="flex justify-center mt-2 space-x-4 text-blue-600">
+            ${
+              member.linkedin
+                ? `<a href="${member.linkedin}" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl hover:text-blue-800"></i></a>`
+                : ""
+            }
+            ${
+              member.github
+                ? `<a href="${member.github}" target="_blank" aria-label="GitHub"><i class="fab fa-github text-xl hover:text-gray-800"></i></a>`
+                : ""
+            }
+          </div>
+          <button onclick="openProfile('${member.name}', \`${
+            member.bio
+          }\`)" class="mt-4 text-sm text-blue-600 hover:underline">View Profile</button>
+        </div>
+      `;
+        });
+      });
+    </script>
+
+    <!-- Profile Modal -->
+    <div
+      id="teamModal"
+      class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden"
+    >
+      <div
+        class="bg-white p-6 rounded-lg max-w-md w-full relative shadow-xl text-center"
+      >
+        <button
+          onclick="closeProfile()"
+          class="absolute top-2 right-3 text-gray-500 hover:text-red-500 text-xl"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <h3 id="modalName" class="text-2xl font-bold text-blue-600 mb-4"></h3>
+        <p id="modalBio" class="text-gray-700 text-sm leading-relaxed"></p>
+      </div>
+    </div>
+  </body>
+</html>
