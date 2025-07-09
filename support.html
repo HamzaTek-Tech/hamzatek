@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamzatek Support | Submit Ticket</title>
+    <link rel="icon" href="hamzatek.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 shadow">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-bold">Hamzatek Support</h1>
+        <a href="tickets.html" class="text-sm hover:underline">View Tickets</a>
+      </div>
+    </header>
+
+    <!-- Main Form -->
+    <main class="max-w-3xl mx-auto mt-12 bg-white p-8 rounded shadow">
+      <h2 class="text-2xl font-semibold mb-6">Submit a Support Ticket</h2>
+      <form id="ticketForm" class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium mb-1">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            required
+            class="w-full border border-gray-300 rounded px-4 py-2"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            required
+            class="w-full border border-gray-300 rounded px-4 py-2"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            required
+            class="w-full border border-gray-300 rounded px-4 py-2"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Message</label>
+          <textarea
+            id="message"
+            rows="5"
+            required
+            class="w-full border border-gray-300 rounded px-4 py-2"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700"
+        >
+          Submit Ticket
+        </button>
+        <p id="successMsg" class="mt-4 text-green-600 hidden">
+          ✅ Ticket submitted successfully!
+        </p>
+      </form>
+    </main>
+
+    <!-- Firebase + Script -->
+    <script type="module">
+      // Firebase Modular SDK
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp,
+      } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+      // Your Firebase Config
+      const firebaseConfig = {
+        apiKey: "AIzaSyBGrvZL8gkHLRtTANqZDkku6k_WL8ATgTA",
+        authDomain: "hamzatek.firebaseapp.com",
+        projectId: "hamzatek",
+        storageBucket: "hamzatek.firebasestorage.app",
+        messagingSenderId: "934371517940",
+        appId: "1:934371517940:web:de586ecab2c8a4dba8c5a1",
+        measurementId: "G-Z7GW0XSHJ2",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // Form submission
+      const form = document.getElementById("ticketForm");
+      const successMsg = document.getElementById("successMsg");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const ticket = {
+          name: form.name.value.trim(),
+          email: form.email.value.trim(),
+          subject: form.subject.value.trim(),
+          message: form.message.value.trim(),
+          status: "Open",
+          createdAt: serverTimestamp(),
+          ticketId: "HT" + Date.now(),
+        };
+
+        try {
+          await addDoc(collection(db, "tickets"), ticket);
+
+          // Also send to Formspree (optional)
+          fetch("https://formspree.io/f/movwoeoq", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: ticket.name,
+              email: ticket.email,
+              message: `${ticket.subject}\n\n${ticket.message}`,
+            }),
+          });
+
+          form.reset();
+          successMsg.classList.remove("hidden");
+        } catch (error) {
+          alert("❌ Error submitting ticket: " + error.message);
+        }
+      });
+    </script>
+  </body>
+</html>

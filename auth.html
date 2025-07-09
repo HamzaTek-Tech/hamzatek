@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamzatek Admin Login</title>
+    <link rel="icon" href="hamzatek.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body
+    class="bg-gray-100 text-gray-800 flex items-center justify-center h-screen"
+  >
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-6 text-center text-blue-600">
+        Hamzatek Admin Login
+      </h2>
+
+      <div class="space-y-4">
+        <input
+          type="email"
+          id="email"
+          placeholder="Email"
+          autocomplete="email"
+          required
+          class="w-full p-3 border border-gray-300 rounded"
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          autocomplete="current-password"
+          required
+          class="w-full p-3 border border-gray-300 rounded"
+        />
+        <button
+          onclick="login()"
+          class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition"
+        >
+          🔐 Login
+        </button>
+        <button
+          onclick="googleLogin()"
+          class="w-full bg-red-600 text-white py-3 rounded hover:bg-red-700 mt-2"
+        >
+          <i class="fab fa-google mr-2"></i> Sign in with Google
+        </button>
+      </div>
+
+      <p id="error" class="mt-4 text-red-500 text-sm hidden"></p>
+
+      <div class="mt-6 text-center">
+        <a href="index.html" class="text-sm text-blue-600 hover:underline"
+          >← Back to Home</a
+        >
+      </div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        GoogleAuthProvider,
+        signInWithPopup,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBGrvZL8gkHLRtTANqZDkku6k_WL8ATgTA",
+        authDomain: "hamzatek.firebaseapp.com",
+        projectId: "hamzatek",
+        storageBucket: "hamzatek.firebasestorage.app",
+        messagingSenderId: "934371517940",
+        appId: "1:934371517940:web:de586ecab2c8a4dba8c5a1",
+        measurementId: "G-Z7GW0XSHJ2",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Redirect if already signed in
+      onAuthStateChanged(auth, (user) => {
+        if (user) window.location.href = "tickets.html";
+      });
+
+      window.login = () => {
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const errorDisplay = document.getElementById("error");
+        const loginBtn = document.getElementById("loginBtn");
+
+        loginBtn.textContent = "🔄 Logging in...";
+        loginBtn.disabled = true;
+        errorDisplay.classList.add("hidden");
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then(() => {
+            window.location.href = "tickets.html";
+          })
+          .catch((error) => {
+            let message = "Login failed. Try again.";
+            if (error.code === "auth/user-not-found")
+              message = "User not found.";
+            else if (error.code === "auth/wrong-password")
+              message = "Incorrect password.";
+            else if (error.code === "auth/invalid-email")
+              message = "Invalid email address.";
+            errorDisplay.textContent = "❌ " + message;
+            errorDisplay.classList.remove("hidden");
+          })
+          .finally(() => {
+            loginBtn.textContent = "🔐 Login";
+            loginBtn.disabled = false;
+          });
+      };
+
+      // Google Login
+      window.googleLogin = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+          .then(() => {
+            window.location.href = "tickets.html";
+          })
+          .catch((error) => {
+            document.getElementById("error").textContent =
+              "❌ Google login failed: " + error.message;
+            document.getElementById("error").classList.remove("hidden");
+          });
+      };
+    </script>
+  </body>
+</html>
