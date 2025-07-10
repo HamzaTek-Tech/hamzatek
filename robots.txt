@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hamzatek-tech.github.io/hamzatek/sitemap.xml
