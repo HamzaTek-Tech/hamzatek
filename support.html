@@ -14,7 +14,19 @@
     <!-- Header -->
     <header class="bg-blue-600 text-white p-4 shadow">
       <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 class="text-xl font-bold">Hamzatek Support</h1>
+        <a
+          target="_blank"
+          href="https://hamzatek-tech.github.io/hamzatek/"
+          class="flex items-center space-x-2 text-gray-800 hover:text-blue-600 transition"
+          ><img
+            src="hamzatek.ico"
+            alt="Hamzatek Logo"
+            class="w-8 h-8 rounded-xl"
+          />
+          <span class="text-xl font-bold text-white">
+            <h1 class="text-xl font-bold">Hamzatek Support</h1></span
+          ></a
+        >
         <a href="tickets.html" class="text-sm hover:underline">View Tickets</a>
       </div>
     </header>
@@ -118,7 +130,7 @@
           await addDoc(collection(db, "tickets"), ticket);
 
           // Also send to Formspree (optional)
-          fetch("https://formspree.io/f/movwoeoq", {
+          fetch("https://formspree.io/f/xpwrvynn", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
